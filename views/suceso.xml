@@ -5,7 +5,7 @@
         <record model="ir.actions.act_window" id="suceso_list_action">
             <field name="name">La acción de suceso</field>
             <field name="res_model">odoo_basico.suceso</field>
-            <field name="view_mode">list,form</field>
+            <field name="view_mode">list</field>
             <field name="help" type="html">
                 <p class="o_view_nocontent_smiling_face">Tienes que crear el primer registro</p>
             </field>
