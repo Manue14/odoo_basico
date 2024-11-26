@@ -29,10 +29,17 @@
               </page>
               <page string="Datos Numéricos">
                 <group>
-                  <field name="alto_en_cms"/>
-                  <field name="ancho_en_cms"/>
-                  <field name="largo_en_cms"/>
-                  <field name="peso"/>
+                  <group>
+                    <field name="alto_en_cms"/>
+                    <field name="ancho_en_cms"/>
+                    <field name="largo_en_cms"/>
+                    <field name="literal" readonly="1"/>
+                  </group>
+                  <group>
+                    <field name="volumen" />
+                    <field name="peso"/>
+                    <field name="densidad"/>
+                  </group>
                 </group>
               </page>
               <page string="Datos">
@@ -57,7 +64,9 @@
           <field name="alto_en_cms"/>
           <field name="ancho_en_cms"/>
           <field name="largo_en_cms"/>
+          <field name="volumen" />
           <field name="peso"/>
+          <field name="densidad"/>
         </list>
       </field>
     </record>
