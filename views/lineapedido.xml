@@ -1,0 +1,51 @@
+<odoo>
+  <data>
+
+    <record model="ir.actions.act_window" id="lineapedido_list_action">
+      <field name="name">La acción de lineapedido</field>
+      <field name="res_model">odoo_basico.lineapedido</field>
+      <field name="view_mode">list,form</field>
+      <field name="help" type="html">
+        <p class="o_view_nocontent_smiling_face">Tienes que crear el primer registro</p>
+      </field>
+    </record>
+
+
+    <record model="ir.ui.view" id="lineapedido_form_view">
+      <field name="name">odoo_basico.form</field>
+      <field name="model">odoo_basico.lineapedido</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <notebook>
+              <page string="Datos Texto">
+                <group>
+                    <field name="descripcion_lineapedido" />
+                    <field name="cantidad" />
+                    <field name="num_1" />
+                    <field name="num_2" />
+                    <field name="informacion_ids" />
+                </group>
+              </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+      <record model="ir.ui.view" id="lineapedido_list_view">
+      <field name="name">odoo_basico.list</field>
+      <field name="model">odoo_basico.lineapedido</field>
+      <field name="arch" type="xml">
+        <list>
+            <field name="descripcion_lineapedido" />
+            <field name="cantidad" />
+            <field name="num_1" />
+            <field name="num_2" />
+            <field name="informacion_ids" />
+        </list>
+      </field>
+    </record>
+
+  </data>
+</odoo>

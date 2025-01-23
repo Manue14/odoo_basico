@@ -1,0 +1,54 @@
+<odoo>
+  <data>
+
+    <record model="ir.actions.act_window" id="pedido_list_action">
+      <field name="name">La acción de pedido</field>
+      <field name="res_model">odoo_basico.pedido</field>
+      <field name="view_mode">list,form</field>
+      <field name="help" type="html">
+        <p class="o_view_nocontent_smiling_face">Tienes que crear el primer registro</p>
+      </field>
+    </record>
+
+
+    <record model="ir.ui.view" id="pedido_form_view">
+      <field name="name">odoo_basico.form</field>
+      <field name="model">odoo_basico.pedido</field>
+      <field name="arch" type="xml">
+        <form>
+          <head>
+            <button name="actualizadorSexo" type="object" string="Actualiza o campo Sexo do modelo información"/>
+            <button name="creaRexistroInformacion" type="object" string="Crea un rexistro no modelo información"/>
+            <button name="actualizaRexistroInformacion" type="object" string="Actualiza un rexistro no modelo información"/>
+          </head>
+          <sheet>
+            <group>
+                <field name="name" />
+                <field name="descripcion" />
+                <separator string="Visualizar e engadir"/>
+                <field name="lineapedido_ids"/>
+            </group>
+            <notebook>
+              <page string="Datos Texto">
+                <group>
+                </group>
+              </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+      <record model="ir.ui.view" id="pedido_list_view">
+      <field name="name">odoo_basico.list</field>
+      <field name="model">odoo_basico.pedido</field>
+      <field name="arch" type="xml">
+        <list>
+          <field name="name" />
+            <field name="descripcion" />
+        </list>
+      </field>
+    </record>
+
+  </data>
+</odoo>

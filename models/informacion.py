@@ -24,6 +24,20 @@ class informacion(models.Model):
     foto = fields.Binary(string='Foto')
     adjunto_nombre = fields.Char(string="Nombre Adjunto")
     adjunto = fields.Binary(string="Archivo adjunto")
+    # Os campos Many2one crean un campo na BD
+    moneda_id = fields.Many2one('res.currency', domain="[('position','=','after')]")
+    moneda_en_texto = fields.Char(related="moneda_id.currency_unit_label",
+                                 string="Moneda en formato texto")
+    creador_da_moneda = fields.Char(related="moneda_id.create_uid.login",
+                                   string="Usuario creador da moneda", store=True)
+    moneda_euro_id = fields.Many2one('res.currency',
+                                    default=lambda self: self.env['res.currency'].search([('name', '=', "EUR")],
+                                                                                         limit=1))
+    gasto_en_euros = fields.Monetary("Gasto en Euros", 'moneda_euro_id')
+    moneda_dolar_id = fields.Many2one('res.currency',
+                                     default=lambda self: self.env['res.currency'].search([('name', '=', "USD")],
+                                                                                          limit=1))
+    gasto_en_dolares = fields.Monetary("Gasto en Dólares", 'moneda_dolar_id')
 
     @api.depends('alto_en_cms', 'largo_en_cms', 'ancho_en_cms')
     def _volume(self):
@@ -52,3 +66,6 @@ class informacion(models.Model):
                 registro.densidad = 0
             else:
                 registro.densidad = float(registro.peso) / float(registro.volumen)
+
+    def _cambia_campo_sexo(self, rexistro):
+        rexistro.sexo_traducido = "Hombre"

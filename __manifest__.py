@@ -26,6 +26,8 @@ Long description of module's purpose
         'views/suceso.xml',
         'views/templates.xml',
         'views/menu.xml',
+        'views/pedido.xml',
+        'views/lineapedido.xml',
         'security/ir.model.access.csv',
     ],
     # only loaded in demonstration mode

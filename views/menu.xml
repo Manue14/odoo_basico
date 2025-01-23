@@ -3,5 +3,6 @@
         <menuitem id="main_odoo" name="Menú Nivel 0 de Odoo Básico" sequence="5"/>
         <menuitem id="menu_informacion" name="Menú Nivel 1 de informacion" parent="main_odoo" action="informacion_list_action"/>
         <menuitem id="menu_suceso" name="Menú Nivel 1 de suceso" parent="main_odoo" action="suceso_list_action"/>
+        <menuitem id="menu_pedido" name="Menú Nivel 1 de pedido" parent="main_odoo" action="pedido_list_action"/>
     </data>
 </odoo>

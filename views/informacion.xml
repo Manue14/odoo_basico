@@ -4,7 +4,7 @@
     <record model="ir.actions.act_window" id="informacion_list_action">
       <field name="name">La acción de información</field>
       <field name="res_model">odoo_basico.informacion</field>
-      <field name="view_mode">list,form</field>
+      <field name="view_mode">list,form,graph,pivot</field>
       <field name="help" type="html">
         <p class="o_view_nocontent_smiling_face">Tienes que crear el primer registro</p>
       </field>
@@ -50,6 +50,21 @@
                   <field name="adjunto" filename="adjunto_nombre"/>
                 </group>
               </page>
+              <page string="Monedas">
+                <group>
+                  <group>
+                    <field name="moneda_euro_id" invisible="1"/>
+                    <field name="gasto_en_euros"/>
+                    <field name="moneda_dolar_id" invisible="1"/>
+                    <field name="gasto_en_dolares"/>
+                  </group>
+                  <group>
+                    <field name="moneda_id"/>
+                    <field name="moneda_en_texto"/>
+                    <field name="creador_da_moneda"/>
+                  </group>
+                </group>
+              </page>
               <page string="Datos">
                 <group>
                 </group>
@@ -78,6 +93,30 @@
         </list>
       </field>
     </record>
+
+  <record model="ir.ui.view" id="informacion_graph_view">
+    <field name="name">odoo_basico.grafico</field>
+    <field name="model">odoo_basico.informacion</field>
+    <field name="arch" type="xml">
+      <graph string="densidades" type="bar">
+        <field name="densidad" type="row"/>
+      </graph>
+    </field>
+  </record>
+
+  <record model="ir.ui.view" id="informacion_pivot_view">
+    <field name="name">odoo_basico.pivot</field>
+    <field name="model">odoo_basico.informacion</field>
+    <field name="arch" type="xml">
+      <pivot string="pivotando">
+        <field name="alto_en_cms" type="row"/>
+        <field name="sexo_traducido" type="col"/>
+        <field name="densidad" type="measure"/>
+        <field name="peso" type="measure"/>
+        <field name="volumen" type="measure"/>
+      </pivot>
+    </field>
+  </record>
 
    <record model="ir.filters" id="filtro1">
      <field name="name">Filtro informacion 1</field>
