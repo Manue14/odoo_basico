@@ -15,6 +15,9 @@
       <field name="model">odoo_basico.informacion</field>
       <field name="arch" type="xml">
         <form>
+          <header>
+            <button name="envio_email" type="object" string="Enviar Email"/>
+          </header>
           <sheet>
             <group>
               <field name="name"/>
@@ -142,6 +145,7 @@
       <field name="user_id"></field><!-- En blanco para que esté dispoñible para todos os usuarios -->
       <field name="action_id" eval="ref('odoo_basico.informacion_list_action')"/><!-- Obtemos o id a partir do id externo-->
     </record>
+
     <!-- explicit list view definition -->
 <!--
     <record model="ir.ui.view" id="odoo_basico.list">
